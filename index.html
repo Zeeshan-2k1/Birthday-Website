@@ -6,7 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Happy Birthday Sana</title>
   </head>
-  <body></body>
+  <body>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="content">
+        <h1 class="initial">
+          and in the barren bushes I hold you like the moon,<br />
+          a distant dream of closedness I hope to live soon!
+        </h1>
+      </div>
+      <div id="show" class="image hide">
+        <img src="./assets/images/Image.png" alt="Sana" />
+        <h1 id="wish" class="textHide">
+          Happy Birthday! <i class="fa fa-heart" style="color: red"></i>
+        </h1>
+      </div>
+    </div>
+
+    <script defer>
+      const target = document.getElementById('show');
+      setTimeout(() => {
+        target.classList.remove('hide');
+      }, 6000);
+      const wish = document.getElementById('wish');
+      setTimeout(() => {
+        wish.classList.remove('textHide');
+      }, 9000);
+    </script>
+  </body>
 </html>

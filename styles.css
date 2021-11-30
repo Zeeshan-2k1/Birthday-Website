@@ -20,10 +20,140 @@ body {
   background-size: cover;
   overflow: hidden;
   font-family: myFont;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 50%;
+  text-align: center;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+.initial {
+  font-family: myFont;
+  text-transform: capitalize;
+  font-weight: 400;
+  animation: fade 5000ms ease;
+  animation-delay: 1000ms;
+  width: 100%;
+  z-index: 0;
+  visibility: hidden;
+}
+
+.image {
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 3000ms ease;
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+
+.image > h1 {
+  opacity: 1;
+  transition: opacity 1000ms ease;
+  margin-top: -20%;
+}
+.hide {
+  height: 0 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+}
+
+.textHide {
+  opacity: 0 !important;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/images/Stars.svg');
+  mix-blend-mode: screen;
+  background-repeat: no-repeat;
+  animation: giltter 10000ms ease-in-out infinite forwards;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 500px) {
   body {
     background-image: url('./assets/images/mobile\ view-03.png');
+  }
+  .container {
+    width: 85%;
+  }
+  .initial {
+    font-size: 1.25rem;
+  }
+  .image > h1 {
+    color: white;
+    font-size: 1.5rem;
+  }
+  .overlay {
+    height: 50vh;
+    background-repeat: repeat;
+    bottom: auto;
+    top: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+  30% {
+    opacity: 1;
+    visibility: visible;
+  }
+  80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes giltter {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
   }
 }
